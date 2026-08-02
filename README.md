@@ -67,3 +67,23 @@ The project runs in Python 3.12+ with the following key dependencies[cite: 1]:
 ```bash
 pip install sentence-transformers spacy seaborn tqdm scikit-learn pandas matplotlib
 python -m spacy download en_core_web_md
+
+## Usage
+
+1. Clone or download this repository.
+2. Open `nlp_proj.ipynb` in Google Colab or a local Jupyter environment.
+3. Run the cells sequentially. The data collection script will automatically fetch data from Wikipedia (or you can load the pre-extracted `data_films_2023.json` dataset).
+
+## 📊 Key Findings & Conclusion
+
+- **SBERT Embeddings vs. NER Distance**: SBERT successfully captures continuous semantic manifolds, grouping movies by thematic tone and genre with meaningful local neighborhoods. In contrast, the filtered NER Jaccard distance isolates broad production ecosystems (e.g., Bollywood vs. Hollywood) rather than thematic genres, suffering from high sparsity and the "exact match" limitation.
+- **Quantitative Metrics**: SBERT embeddings achieve superior alignment with genre labels (positive ARI, higher NMI of `0.101`), whereas NER-based clustering shows near-zero correlation with genre, reflecting instead a "production bias".
+- **Multi-label Complexity**: Movie genres are inherently multi-label and overlapping (dominated by drama and comedy), which explains lower absolute evaluation scores when simplified to single primary labels.
+
+## 📄 References & Appendix
+
+The report includes detailed mathematical formulations and supplementary discussions on:
+
+- **Appendix A.1**: In-depth mechanics of BERT (Masked Language Modeling) and SBERT (Siamese Networks & Pooling).
+- **Appendix A.2**: Analysis of the unfiltered raw NER Jaccard distance matrix.
+- **Appendix A.3**: Sensitivity analysis of Spectral Clustering across different cluster sizes ($k \in \{4, 8, 15\}$), along with formal definitions of t-SNE, ARI, and NMI.
