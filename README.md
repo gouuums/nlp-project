@@ -73,6 +73,7 @@ python -m spacy download en_core_web_md
 1. Clone or download this repository.
 2. Open `nlp_proj.ipynb` in Google Colab or a local Jupyter environment.
 3. Run the cells sequentially. The data collection script will automatically fetch data from Wikipedia (or you can load the pre-extracted `data_films_2023.json` dataset).
+```
 
 ## 📊 Key Findings & Conclusion
 
