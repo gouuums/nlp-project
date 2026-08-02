@@ -1,5 +1,5 @@
 # nlp-project
-## ENSAI 3rd Year — Webmining & NLP Course: Final Project Report
+## ENSAI 3rd Year — Webmining & NLP Course: Final project report
 
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/)
 [![spaCy](https://img.shields.io/badge/spaCy-3.8-orange.svg)](https://spacy.io/)
@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **Authors:** Thomas Goumont (`thomas.goumont@eleve.ensai.fr`) & Léo Gruchociak (`leo.gruchociak@eleve.ensai.fr`)  
-> **Institution:** ENSAI (École Nationale de la Statistique et de l'Analyse de l'Information)  
+> **Institution:** ENSAI (National School for Statistics and Data Science)  
 > **Course:** Webmining and Natural Language Processing (Pr. Cyrielle Mallart)  
 
 ---
