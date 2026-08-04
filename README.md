@@ -22,58 +22,59 @@ The complete analysis, code, and visualizations are embedded within the Jupyter 
 
 ---
 
-## 🗂️ Notebook Structure (`nlp_proj.ipynb`)
+## 🗂️ Notebook structure (`nlp_proj.ipynb`)
 
 The notebook is structured into six core analytical parts, followed by a comprehensive appendix:
 
-1. **Data Gathering & Curation via Wikipedia API**
+1. **Data gathering & curation via Wikipedia API**
    - Extraction of 500 movie article titles from the `"2023 films"` category.
    - Comparison of MediaWiki API extraction modules (`revisions` vs. `extracts`).
    - Proxy-labeling strategy: mapping user-contributed Wikipedia categories to standardized multi-label movie genres using keyword spotting.
-   - Data persistence (`data_films_2023.json`)[cite: 1].
+   - Data persistence (`data_films_2023.json`).
 
-2. **Exploratory Data Analysis (EDA)**
-   - Corpus-wide descriptive statistics (article length variance, vocabulary richness)[cite: 1].
-   - Linguistic profiling via **spaCy** (`en_core_web_md`): Type-Token Ratio (TTR), sentence length, and Part-of-Speech (POS) distribution analysis (highlighting the encyclopedic nature of the corpus)[cite: 1].
-   - Critical evaluation of dataset strengths, biases (popularity/blockbuster bias), and future enrichment strategies (e.g., integrating TMDb or sentiment analysis via Hugging Face Transformers)[cite: 1].
+2. **Exploratory data analysis**
+   - Corpus-wide descriptive statistics (article length variance, vocabulary richness).
+   - Linguistic profiling via **spaCy** (`en_core_web_md`): Type-Token Ratio (TTR), sentence length, and Part-of-Speech (POS) distribution analysis (highlighting the encyclopedic nature of the corpus).
+   - Critical evaluation of dataset strengths, biases (popularity/blockbuster bias), and future enrichment strategies (e.g., integrating TMDb or sentiment analysis via Hugging Face Transformers).
 
-3. **Named Entity Recognition (NER) & Information Extraction**
-   - Pipeline optimization by disabling unnecessary components for faster batch inference (`nlp.pipe`)[cite: 1].
-   - Extraction and frequency analysis of standard IOB entities (`PERSON`, `ORG`, `GPE`, `DATE`, etc.)[cite: 1].
-   - Document-level co-occurrence analysis and identification of editorial patterns vs. semantic links[cite: 1].
+3. **Named Entity Recognition (NER) & information extraction**
+   - Pipeline optimization by disabling unnecessary components for faster batch inference (`nlp.pipe`).
+   - Extraction and frequency analysis of standard IOB entities (`PERSON`, `ORG`, `GPE`, `DATE`, etc.).
+   - Document-level co-occurrence analysis and identification of editorial patterns vs. semantic links.
 
-4. **Text Embeddings & Semantic Vectorization**
-   - Introduction to encoder-only architectures (BERT) and Sub-word tokenization (WordPiece)[cite: 1].
-   - Generating 384-dimensional dense semantic vectors using **Sentence-BERT** (`all-MiniLM-L6-v2`) with mean pooling[cite: 1].
-   - Comparison against static average word-vector representations[cite: 1].
+4. **Text embeddings & semantic vectorization**
+   - Introduction to encoder-only architectures (BERT) and Sub-word tokenization (WordPiece).
+   - Generating 384-dimensional dense semantic vectors using **Sentence-BERT** (`all-MiniLM-L6-v2`) with mean pooling.
+   - Comparison against static average word-vector representations.
 
-5. **Entity-Based Distance Matrix & Jaccard Index**
-   - Constructing a Jaccard distance matrix based on filtered named entities (removing noise like `CARDINAL`, `DATE`, `ORDINAL`)[cite: 1].
-   - Analyzing the "exact match problem" and sparsity issues in entity sets[cite: 1].
+5. **Entity-based distance matrix & Jaccard index**
+   - Constructing a Jaccard distance matrix based on filtered named entities (removing noise like `CARDINAL`, `DATE`, `ORDINAL`).
+   - Analyzing the "exact match problem" and sparsity issues in entity sets.
 
-6. **Unsupervised Clustering & Genre Recovery**
-   - Data-driven hyperparameter tuning for the number of clusters ($k=8$)[cite: 1].
-   - **Spectral Clustering** applied to both SBERT semantic features and precomputed NER affinity matrices[cite: 1].
-   - Dimensionality reduction and visualization via **t-SNE**[cite: 1].
-   - Quantitative evaluation using **Adjusted Rand Index (ARI)** and **Normalized Mutual Information (NMI)** against Wikipedia proxy-genres[cite: 1].
-   - Detailed qualitative comparison through cluster-genre distribution heatmaps[cite: 1].
+6. **Unsupervised clustering & genre recovery**
+   - Data-driven hyperparameter tuning for the number of clusters ($k=8$).
+   - **Spectral Clustering** applied to both SBERT semantic features and precomputed NER affinity matrices.
+   - Dimensionality reduction and visualization via **t-SNE**.
+   - Quantitative evaluation using **Adjusted Rand Index (ARI)** and **Normalized Mutual Information (NMI)** against Wikipedia proxy-genres.
+   - Detailed qualitative comparison through cluster-genre distribution heatmaps.
 
 ---
 
-## 📦 Requirements & Installation
+## 📦 Requirements & installation
 
-The project runs in Python 3.12+ with the following key dependencies[cite: 1]:
+The project runs in Python 3.12+ with the following key dependencies:
 
 ```bash
 pip install sentence-transformers spacy seaborn tqdm scikit-learn pandas matplotlib
 python -m spacy download en_core_web_md
+```
 
-## Usage
+## 🛠️ Usage
 
 1. Clone or download this repository.
 2. Open `nlp_proj.ipynb` in Google Colab or a local Jupyter environment.
 3. Run the cells sequentially. The data collection script will automatically fetch data from Wikipedia (or you can load the pre-extracted `data_films_2023.json` dataset).
-```
+
 
 ## 📊 Key Findings & Conclusion
 
